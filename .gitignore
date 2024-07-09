@@ -1,0 +1,46 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output of the go coverage tool
+*.out
+
+# Log files
+*.log
+
+# Test binaries
+*.test
+
+# Dependency directories
+vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Go build files
+/build/
+/bin/
+/pkg/
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+
+# Coverage profiles
+coverage.out
+
+# Generated files
+gen/
+
+# Temporary files
+/tmp/
