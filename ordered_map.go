@@ -11,17 +11,17 @@ func IsValidJSON(s string) bool {
 	return json.Unmarshal([]byte(s), &js) == nil
 }
 
-type SortedMap struct {
+type OrderedMap struct {
 	Map *linkedhashmap.Map
 }
 
-func NewSortedMap() *SortedMap {
-	return &SortedMap{
+func NewOrderedMap() *OrderedMap {
+	return &OrderedMap{
 		Map: linkedhashmap.New(),
 	}
 }
 
-func (sm *SortedMap) FromJSON(json string) *SortedMap {
+func (sm *OrderedMap) FromJSON(json string) *OrderedMap {
 	if IsValidJSON(json) {
 		sm.Map.FromJSON([]byte(json))
 	}
@@ -29,7 +29,7 @@ func (sm *SortedMap) FromJSON(json string) *SortedMap {
 	return sm
 }
 
-func (sm *SortedMap) ToJSON() string {
+func (sm *OrderedMap) ToJSON() string {
 	if !sm.Map.Empty() {
 		toJson, _ := sm.Map.ToJSON()
 		return string(toJson)
@@ -37,35 +37,35 @@ func (sm *SortedMap) ToJSON() string {
 	return ""
 }
 
-func (sm *SortedMap) GetMap() *linkedhashmap.Map {
+func (sm *OrderedMap) GetMap() *linkedhashmap.Map {
 	return sm.Map
 }
 
-func (sm *SortedMap) AddPair(key string, value interface{}) *SortedMap {
+func (sm *OrderedMap) AddPair(key string, value interface{}) *OrderedMap {
 	sm.Map.Put(key, value)
 	return sm
 }
 
-func (sm *SortedMap) RemovePair(key string) *SortedMap {
+func (sm *OrderedMap) RemovePair(key string) *OrderedMap {
 	sm.Map.Remove(key)
 	return sm
 }
 
-func (sm *SortedMap) AddPairs(data map[string]interface{}) *SortedMap {
+func (sm *OrderedMap) AddPairs(data map[string]interface{}) *OrderedMap {
 	for key, val := range data {
 		sm.Map.Put(key, val)
 	}
 	return sm
 }
 
-func (sm *SortedMap) ForEach(action func(key string, value interface{})) *SortedMap {
+func (sm *OrderedMap) ForEach(action func(key string, value interface{})) *OrderedMap {
 	sm.Map.Each(func(key, value interface{}) {
 		action(key.(string), value)
 	})
 	return sm
 }
 
-func (sm *SortedMap) Clear() *SortedMap {
+func (sm *OrderedMap) Clear() *OrderedMap {
 	sm.Map.Clear()
 
 	return sm

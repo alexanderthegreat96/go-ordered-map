@@ -1,11 +1,11 @@
-# SortedMap - A Go Package for Managing Ordered Key-Value Pairs
+# OrderedMap - A Go Package for Managing Ordered Key-Value Pairs
 
-This package provides a `SortedMap` data structure in Go that leverages the `linkedhashmap` library from `github.com/emirpasic/gods/maps/linkedhashmap` to maintain key-value pairs in insertion order.
+This package provides a `OrderedMap` data structure in Go that leverages the `linkedhashmap` library from `github.com/emirpasic/gods/maps/linkedhashmap` to maintain key-value pairs in insertion order.
 
 ## Features
 
 * **Preserves Insertion Order:** Keys are stored in the order they were added, providing a deterministic way to iterate through the map.
-* **JSON Support:** The `FromJSON` and `ToJSON` methods enable easy conversion between `SortedMap` and JSON format.
+* **JSON Support:** The `FromJSON` and `ToJSON` methods enable easy conversion between `OrderedMap` and JSON format.
 * **Efficient Key-Value Operations:** Provides methods for adding, removing, accessing, and iterating over key-value pairs.
 
 ## Installation
@@ -23,7 +23,7 @@ This package provides a `SortedMap` data structure in Go that leverages the `lin
     )
 4. Create a sorted map instance
     ```go
-    sm := NewSortedMap()
+    sm := NewOrderedMap()
 5. Start using the functionality
     ```go
     sm.AddPair("name", "John Doe")
